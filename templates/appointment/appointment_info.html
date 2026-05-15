@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Appointment Info</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8 col-lg-7">
+
+                <div class="card border-0 shadow-sm rounded-4">
+
+                    <div class="card-body p-5">
+
+                        <div class="text-center mb-4">
+
+                            <h2 class="fw-bold text-primary">
+                                Appointment Info
+                            </h2>
+
+                            <p class="text-muted">
+                                View complete appointment details.
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Customer Name
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.customer_name }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Phone
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.phone }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Email
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.email }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Appointment Date
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.appointment_date }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Appointment Time
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.appointment_time }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Message
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.message }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Status
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.status }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <h6 class="fw-bold">
+                                Booked At
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.book_at }}
+                            </p>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <h6 class="fw-bold">
+                                Updated At
+                            </h6>
+
+                            <p class="text-muted">
+                                {{ appointment.update_at }}
+                            </p>
+
+                        </div>
+
+                        <div class="d-grid">
+
+                            <a href="/appointments/" class="btn btn-primary btn-lg">
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

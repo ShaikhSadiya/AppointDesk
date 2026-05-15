@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  <title>Appointments</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="container mt-2 p-2">
+      <h3 class=" text-center fw-bold text-primary">Appointments</h3>
+
+        <form class="d-flex gap-2 w-50 mx-auto mt-3" method="get">
+
+                <input type="text"
+                      name="search"
+                      class="form-control  shadow-sm">
+
+                      <button class="btn btn-primary">
+                       <i class="bi bi-search"></i>
+                      </button>
+
+        </form>
+       <table class="table border border-black mt-4">
+      <thead>
+         <tr>
+
+           <th>CustomerName</th>
+           <th>Phone</th>
+           <th>Date</th>
+           <th>Time</th>
+           <th>Message</th>
+           <th>Status</th>
+           <th>Action</th>
+         </tr>
+      </thead>
+      <tbody>
+
+           {% for appoint in appointment %}
+               <tr>
+
+                 <td>{{appoint.customer_name}}</td>
+                 <td>{{appoint.phone}}</td>
+                 <td>{{appoint.appointment_date}}</td>
+                 <td>{{appoint.appointment_time}}</td>
+                 <td>{{appoint.message}}</td>
+
+                   <td>
+
+                       {% if appoint.status == 'Pending' %}
+
+                           <span class="badge bg-warning text-dark">
+                                  Pending
+                           </span>
+
+                       {% elif appoint.status == 'Completed' %}
+
+                          <span class="badge bg-success">
+                          Completed
+                          </span>
+
+                       {% elif appoint.status == 'Cancelled' %}
+
+                         <span class="badge bg-danger">
+                         Cancelled
+                         </span>
+
+                        {% endif %}
+
+                   </td>
+                 <td>
+
+                    <a href="/appointments/info/{{appoint.id}}/"
+                    class="btn btn-outline-info btn-sm">
+                        Info
+
+                    </a>
+
+                    <a href="/appointments/update/{{appoint.id}}/"
+                    class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-pencil"></i>
+                        Update
+                    </a>
+
+                    <a href="/appointments/delete/{{appoint.id}}/"
+                    class="btn btn-outline-danger btn-sm"
+                    onclick="return confirm('Are you sure you want to delete this appointment?')">
+                    <i class="bi bi-trash"></i>
+                    Delete
+                    </a>
+
+                 </td>
+               </tr>
+
+            {% endfor %}
+
+      </tbody>
+    </table>
+    </div>
+
+
+
+
+
+{% endblock %}
